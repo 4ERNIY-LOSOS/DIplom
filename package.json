@@ -1,0 +1,19 @@
+{
+  "name": "logistics-system-root",
+  "private": true,
+  "workspaces": [
+    "logistics-system/server",
+    "logistics-system/client/logistics-client"
+  ],
+  "scripts": {
+    "install:all": "npm install",
+    "dev:server": "npm run start:dev --workspace=logistics-system/server",
+    "dev:client": "npm run dev --workspace=logistics-system/client/logistics-client",
+    "dev:tauri": "npm run tauri dev --workspace=logistics-system/client/logistics-client",
+    "dev": "npx concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "build:all": "npm run build --workspaces"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
